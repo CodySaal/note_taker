@@ -22,7 +22,38 @@ app.get("/api/notes", (req,res) => {
     })
 })
 
+app.post("/api/notes", (req, res) => {
+    const {title, text} = req.body
+    if( !title || !text) {
+        res.status(400).json({error: "Missing title or text."})
+        return
+    }
 
+    const newNote = {
+        ...req.body,
+//        id: Math.random()
+    }
+
+    //Read contents of db.json
+    fs.readFile(path.join(__dirname, "db", "db.json"), "utf-8", function(err, data) {
+        if (err) {
+            res.status(500).json(err)
+            return
+        }
+        //parse string into JSON
+        const notesData = JSON.parse(data)
+        // push new note into JSON
+        notesData.push(newNote)
+        // stringify note array and save file
+        fs.writeFile(path.join(__dirname, "db", "db.json"), JSON.stringify(notesData), function(err){
+            if (err) {
+                res.status(500).json(err)
+                return
+            }
+            res.status(200).json(newNote)
+        })
+    })
+})
 
 
 
