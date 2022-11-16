@@ -13,7 +13,7 @@ This application allows a user to take and save notes throughout the day. This w
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+A user can clone the code from the GitHub repo in order to have access to the code. Once the code is open in a code editor the user will have to install all dependencies using `npm i`. The user can then run `npm run dev` to start a server that will update when changes are made to the code. 
 
 ## Usage
 
@@ -23,11 +23,10 @@ After you have written a new note that note can be saved with the save icon in t
 
 If a note is no longer needed, there is a red trash can icon that can be clicked to delete notes.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![App Screenshot](assets/note_taker_screenshot.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+[Note Taker App](https://saal-note-taker.herokuapp.com/)
+
 
 ## Credits
 
