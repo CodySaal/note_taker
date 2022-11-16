@@ -1,6 +1,9 @@
 const router = require("express").Router()
 const path = require("path")
 const fs = require("fs")
+const generators = require("id-generators")
+const generator = generators.get("nanoid")
+const generate = generator()
 
 // API routes
 
@@ -27,7 +30,7 @@ router.post("/notes", (req, res) => {
 
     const newNote = {
         ...req.body,
-        id: Math.random()
+        id: generate()
     }
 
     //Read contents of db.json
